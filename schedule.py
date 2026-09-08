@@ -21,7 +21,6 @@ def build_schedule(
     return Schedule(T=T, betas=betas, alphas=alphas, alpha_bar=alpha_bar)
 
 
-# q_sample
 def q_sample(x_0, t, alpha_bar, noise=None):
     B = x_0.shape[0]
     if isinstance(t, int):
@@ -49,10 +48,6 @@ def corr(a, b):
 
 if __name__ == "__main__":
     s = build_schedule()
-    # print("beta_1 = ", s.betas[0].item())
-    # print("beta_1000 = ", s.betas[-1].item())
-    # print("alpha_bar_1 = ", s.alpha_bar[0].item())
-    # print("alpha_bar_1000 = ", s.alpha_bar[-1].item())
 
     x_0 = torch.randn(5, 1, 28, 28)
     t = torch.tensor([1, 100, 300, 600, 999])
